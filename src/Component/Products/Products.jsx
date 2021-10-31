@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import "../../styles/productcard.css"
+import {Link} from "react-router-dom";
 const Products = () => {
     const[products,setProducts] = useState([]);
     const[filter,setFilter] = useState(products);
@@ -54,8 +55,8 @@ const Products = () => {
                         <img src={product.image} alt={product.title} />
                         <h4>{product.title}</h4>
                         <p>$ {product.price}</p>
-                        <a href="#">Details</a>
-                        <button>Add to cart</button>
+                        <Link to ={`/products/${product.id}`}>Explore</Link>
+                        
                     </div>
                     )
                     
