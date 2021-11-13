@@ -6,22 +6,30 @@ const cartHandler =(state= myCart,action)=>{
     switch(action.type){
         case "ADDTOCART":
             const itemExist = state.find((element)=>element.id === item.id);
+            
             if(itemExist){
                 return state.map((element)=>element.id === item.id  ?
                 {
                     ...element,
-                    quantity: element.qty + 1
+                    quantity: element.quantity + 1,
+                    // TotalPrice: element.price * (element.quantity+1),  
+                    TotalPrice: element.Price * (element.quantity+1),         
                 }
-                :   element
+                
+                :
+                        element
                 )
+               
             }
             else {
-                const item = action.payload;
+                const element = action.payload;
                 return [
                     ...state,
                     {
-                        ...item,
-                        quantity:1
+                        ...element,
+                        quantity:1,
+                        // Price: element.price 
+                        Price: 100
                     }
                 ]
             }
@@ -29,7 +37,12 @@ const cartHandler =(state= myCart,action)=>{
 
         case "REMOVEFROMCART":
                 const itemExistForDeletion = state.find((element)=>element.id === item.id);
-                if(itemExistForDeletion.qty===1){
+                // console.log("I exist")
+                if(itemExistForDeletion){
+                    // console.log("item deleted");
+                    return state.filter((element)=>element.id !== item.id)
+                }
+                else if(itemExistForDeletion.quantity === 1){
                     return state.filter((element)=>element.id !== item.id);
                 }
                 else {
@@ -42,9 +55,45 @@ const cartHandler =(state= myCart,action)=>{
                     )
                 }
         break;
+        
+        case "INCREASEQUANTITY":
+            // const qtyDEC = state.find((element)=>element.id === item.id);
+            // if(qtyDEC){
+                return state.map((element)=>element.id === item.id  ?
+                    {
+                        ...element,
+                        quantity: element.quantity + 1,
+                        TotalPrice:(100 * (element.quantity+1)).toFixed(2),
+                        // TotalPrice: element.Price * (element.quantity+1), 
+                       
+                    }
+                        : element
+                )
+            
+        break;
+
+        case "DECREASEQUANTITY":
+            // const qtyDEC = state.find((element)=>element.id === item.id);
+            // if(qtyDEC){
+                return state.map((element)=>element.id === item.id  ?
+                    element.quantity >0 ?
+                    {
+                        ...element,
+                        quantity: element.quantity - 1,
+                        // TotalPrice:(element.price * element.quantity).toFixed(2)
+                        TotalPrice:(100 * (element.quantity-1)).toFixed(2)
+                    }
+                    :{
+                        ...element,
+                        quantity: 0, 
+                    } : element
+                    )
+            
+        break;
+
         default:
             return state;
-            break;
+        break;
     }
 }
 export default cartHandler;

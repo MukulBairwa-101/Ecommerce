@@ -11,3 +11,17 @@ export const removeFromCart = (item)=>{
         payload:item
     }
 }
+
+export const decreaseQuantity = (item)=>{
+    return{
+        type:"DECREASEQUANTITY",
+        payload:item
+    }
+}
+export const increaseQuantity = (item)=>{
+    return{
+        type:"INCREASEQUANTITY",
+        payload:item
+    }
+}
+

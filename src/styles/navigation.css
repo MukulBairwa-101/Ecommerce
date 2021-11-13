@@ -1,0 +1,24 @@
+.navigation{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .02rem solid rgb(218, 218, 218);
+    box-shadow: .1rem .1rem .4rem rgb(218, 218, 218);
+}
+.navigation div:first-of-type img{
+    width:40%;
+    cursor: pointer;
+    padding-left: 2rem;
+}
+.navigation_links ul{
+    display: flex;
+    padding: .5rem;
+}
+.navigation_links ul li{
+padding: .5rem 1rem;
+list-style: none;
+
+}
+.navigation_links ul li a{
+    text-decoration: none;
+}

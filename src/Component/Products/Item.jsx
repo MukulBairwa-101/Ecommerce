@@ -12,6 +12,7 @@ const Item = () => {
     const dispatch = useDispatch();
     const handleAddToCart =(item)=>{
         dispatch(addToCart(item));
+        
     }
 
     useEffect(()=>{
@@ -23,7 +24,6 @@ const Item = () => {
 
         }
         getItem();
-        // console.log(item,"item is here")
     },[])
 
     const ItemDisplay =()=>{
@@ -31,9 +31,9 @@ const Item = () => {
             <>
                 <div className="item_wrapper">
                     <div className="image_container">
-                        <img src={item.image} alt={item.title} />
+                        <img src={item.image} style ={{width:"100px"}} alt={item.title} />
                     </div>
-                    <div className="additional_info_container">
+                    <div className="additional_info_container" style ={{width:"500px",height:"200px"}}>
                         <p>{item.title}</p>
                         <h4>{item.category}</h4>
                         <span>$ {item.price}</span>

@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import "../../styles/productcard.css"
+import "../../styles/Common.css";
 import {Link} from "react-router-dom";
 const Products = () => {
     const[products,setProducts] = useState([]);
@@ -10,7 +11,7 @@ const Products = () => {
     useEffect(() => {
        const getProducts = async ()=>{
            setLoading(true);
-           const responseData  = await fetch("https://fakestoreapi.com/products");
+           const responseData  = await fetch(`https://fakestoreapi.com/products`);
         //    console.log(responseData,"api fetched");
            if(componentMounted){
                setProducts( await responseData.clone().json());
@@ -54,9 +55,11 @@ const Products = () => {
                     <div className="product_card">
                         <img src={product.image} alt={product.title} />
                         <h4>{product.title}</h4>
-                        <p>$ {product.price}</p>
-                        <Link to ={`/products/${product.id}`}>Explore</Link>
                         
+                            <p>$ {product.price}</p>
+                            <Link to ={`/products/${product.id}`}>Explore</Link>
+
+
                     </div>
                     )
                     

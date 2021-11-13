@@ -1,0 +1,26 @@
+.tabs{
+    max-width:70%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+}
+.tabs ul {
+    display: flex;
+    list-style: none;
+}
+.tabs ul li {
+    padding: 1rem 1.5rem;
+    border:1rem;   
+    
+}
+.tabs ul li button{
+    padding: .5rem;
+    cursor: pointer;
+    background-color: rgb(185, 123, 243);
+    outline: none;
+    border:none;
+    color: white;
+    font-weight: 500;
+    letter-spacing: .1rem;
+}
