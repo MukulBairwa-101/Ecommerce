@@ -1,0 +1,16 @@
+.item_wrapper{
+    max-width: 100%;
+    display: flex;
+    
+}
+.item_wrapper div:first-of-type{
+    max-width: 40%;
+}
+.item_wrapper div:first-of-type img{
+    width:50%;
+    margin:.5rem auto;
+}
+
+/* Button holder */
+
+/* Button holder */

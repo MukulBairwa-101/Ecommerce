@@ -58,8 +58,6 @@ const Products = () => {
                         
                             <p>$ {product.price}</p>
                             <Link to ={`/products/${product.id}`}>Explore</Link>
-
-
                     </div>
                     )
                     

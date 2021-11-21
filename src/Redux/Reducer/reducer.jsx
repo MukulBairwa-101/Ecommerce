@@ -28,8 +28,7 @@ const cartHandler =(state= myCart,action)=>{
                     {
                         ...element,
                         quantity:1,
-                        // Price: element.price 
-                        Price: 100
+                        Price: element.price 
                     }
                 ]
             }
@@ -63,8 +62,8 @@ const cartHandler =(state= myCart,action)=>{
                     {
                         ...element,
                         quantity: element.quantity + 1,
-                        TotalPrice:(100 * (element.quantity+1)).toFixed(2),
-                        // TotalPrice: element.Price * (element.quantity+1), 
+                        // TotalPrice:(element.Price * (element.quantity+1)).toFixed(2),
+                        TotalPrice: (element.Price * (element.quantity+1)).toFixed(2), 
                        
                     }
                         : element
@@ -80,8 +79,8 @@ const cartHandler =(state= myCart,action)=>{
                     {
                         ...element,
                         quantity: element.quantity - 1,
-                        // TotalPrice:(element.price * element.quantity).toFixed(2)
-                        TotalPrice:(100 * (element.quantity-1)).toFixed(2)
+                        TotalPrice:(element.price * (element.quantity-1)).toFixed(2)
+                        // TotalPrice:(100 * (element.quantity-1)).toFixed(2)
                     }
                     :{
                         ...element,

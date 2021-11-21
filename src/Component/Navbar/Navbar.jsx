@@ -14,11 +14,11 @@ const Navbar = () => {
                 <ul>
                     <li><Link to ="/">Shop</Link></li>
                     <li> <Link to ="/products">Products</Link> </li>
-                    <li><Link to ="/cart"><FiShoppingCart />Cart {state.length}</Link></li>
+                    <li><Link to ="/cart"><FiShoppingCart /> <span>{state.length}</span></Link></li>
                 </ul>
             </div>
             <div>
-                <h4><HiUserCircle />Login</h4>
+                {/* <h4><HiUserCircle />Login</h4> */}
             </div>
         </div>
     )

@@ -6,7 +6,7 @@
     box-shadow: .1rem .1rem .4rem rgb(218, 218, 218);
 }
 .navigation div:first-of-type img{
-    width:40%;
+    width:35%;
     cursor: pointer;
     padding-left: 2rem;
 }
@@ -21,4 +21,7 @@ list-style: none;
 }
 .navigation_links ul li a{
     text-decoration: none;
+}
+.navigation_links li a span{
+    color:crimson;
 }

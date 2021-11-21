@@ -4,6 +4,7 @@ import {addToCart} from "../../Redux/Action/action";
 import { useParams } from 'react-router';
 import Loader from '../Common/Loader';
 import {Link} from "react-router-dom";
+import "../../styles/item.css";
 const Item = () => {
     const {id} = useParams();
     const[item,setItem] = useState([]);
@@ -31,7 +32,7 @@ const Item = () => {
             <>
                 <div className="item_wrapper">
                     <div className="image_container">
-                        <img src={item.image} style ={{width:"100px"}} alt={item.title} />
+                        <img src={item.image}/>
                     </div>
                     <div className="additional_info_container" style ={{width:"500px",height:"200px"}}>
                         <p>{item.title}</p>

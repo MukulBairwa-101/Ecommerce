@@ -1,12 +1,17 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux';
-import {removeFromCart} from "../../Redux/Action/action";
+import { removeFromCart } from "../../Redux/Action/action";
 import { decreaseQuantity } from '../../Redux/Action/action';
 import { increaseQuantity } from '../../Redux/Action/action';
 import Billing from './Billing';
 const Cart = () => {
-    // const [totalProducts,setTotalProducts] = useState(0);
+    const [totalProducts,setTotalProducts] = useState(0);
+    const [amount,setAmount] = useState(0.00);
+
     const state = useSelector((state)=>state.cartHandler);
+    useEffect(() => {
+        SETBILL();
+    }, [state])
     const dispatch = useDispatch();
     const handleRemoveFromCart =(el)=>{
         dispatch(removeFromCart(el));
@@ -20,13 +25,23 @@ const Cart = () => {
 
         // SETBILL();
     }
-    // const SETBILL =()=>{
-    //     state.map((el)=>{
-    //         let data =0;
-    //         data+=el.quantity;
-    //        setTotalProducts(data)
-    //     })
-    // }
+    const SETBILL =()=>{
+        let totalItems = 0;
+        let payable  = 0.0;
+        state.length === 0 ?Default()
+        :
+        state.map((el)=>{
+            totalItems+=el.quantity;
+            payable += parseFloat(el.TotalPrice);
+            
+           setTotalProducts(totalItems)
+           setAmount(payable);
+        })
+    }
+    const Default = ()=>{
+        setAmount(0.0);
+        setTotalProducts(0);
+    }
     return (
         <div>
             {state.length===0 ? "empty cart" : 
@@ -58,7 +73,7 @@ const Cart = () => {
                     )
                 })                
             }
-            <Billing  />
+            <Billing total = {[totalProducts,amount]} />
         </div>
     )
 }
