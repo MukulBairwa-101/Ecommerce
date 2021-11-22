@@ -33,9 +33,8 @@ const Cart = () => {
         state.map((el)=>{
             totalItems+=el.quantity;
             payable += parseFloat(el.TotalPrice);
-            
            setTotalProducts(totalItems)
-           setAmount(payable);
+           setAmount(payable.toFixed(2));
         })
     }
     const Default = ()=>{
@@ -73,6 +72,7 @@ const Cart = () => {
                     )
                 })                
             }
+            
             <Billing total = {[totalProducts,amount]} />
         </div>
     )
