@@ -34,8 +34,8 @@ const Item = () => {
                     <div className="image_container">
                         <img src={item.image}/>
                     </div>
-                    <div className="additional_info_container" style ={{width:"500px",height:"200px"}}>
-                        <p>{item.title}</p>
+                    <div className="additional_info_container" >
+                        <h1>{item.title}</h1>
                         <h4>{item.category}</h4>
                         <span>$ {item.price}</span>
                         <p>{item.description}</p>

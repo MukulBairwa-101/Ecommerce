@@ -1,0 +1,19 @@
+/* cart items  */
+.cart_holder{
+    margin: .5rem;
+    max-width:100%;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.biil{
+    height: 100%;
+    background-color: rgb(221, 221, 221);
+    width: 20%;
+}
+.cart_item_conatainer{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+/* cart items */

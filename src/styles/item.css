@@ -8,9 +8,35 @@
 }
 .item_wrapper div:first-of-type img{
     width:50%;
-    margin:.5rem auto;
+    margin:2rem 2rem;
 }
+/* item text details */
+.additional_info_container{
+    width:650px;
+    height:200px;
+}
+.additional_info_container p{
+    font-size: 1.1rem;
+    width:600px;
+}
+.additional_info_container h4{
+    color: rgb(119, 119, 119);
+}
+.additional_info_container span{
+    font-size: 2rem;
+    color: rgb(83, 83, 175);
+}
+/* item text details */
+
 
 /* Button holder */
-
+.button_holder{
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+.button_holder button{
+    font-size: 1.2rem;
+}
 /* Button holder */

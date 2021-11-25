@@ -4,6 +4,7 @@ import { removeFromCart } from "../../Redux/Action/action";
 import { decreaseQuantity } from '../../Redux/Action/action';
 import { increaseQuantity } from '../../Redux/Action/action';
 import Billing from './Billing';
+import "../../styles/cartitems.css";
 const Cart = () => {
     const [totalProducts,setTotalProducts] = useState(0);
     const [amount,setAmount] = useState(0.00);
@@ -18,12 +19,9 @@ const Cart = () => {
     }
     const substractQuantity =(el,state)=>{
         dispatch(decreaseQuantity(el));
-        // SETBILL();
     }
     const addQuantity =(el)=>{
         dispatch(increaseQuantity(el));
-
-        // SETBILL();
     }
     const SETBILL =()=>{
         let totalItems = 0;
@@ -32,7 +30,15 @@ const Cart = () => {
         :
         state.map((el)=>{
             totalItems+=el.quantity;
-            payable += parseFloat(el.TotalPrice);
+            if(el.quantity===1){
+                payable += parseFloat(el.Price);
+            }
+            else 
+            {
+                payable += parseFloat(el.TotalPrice);
+            }
+            
+            // payable += parseFloat(el.TotalPrice);
            setTotalProducts(totalItems)
            setAmount(payable.toFixed(2));
         })
@@ -42,38 +48,42 @@ const Cart = () => {
         setTotalProducts(0);
     }
     return (
-        <div>
+        <div className="cart_holder">
+            <div className="cart_item_conatainer"> 
             {state.length===0 ? "empty cart" : 
             
                 state.map((el)=>{
                     return (
-                        < >
-                            <div >
+                       
+                            <div className="cart_item" >
                                 <div className="cart_image_c">
                                     <img src={el.image} style ={{width:"100px"}} alt={el.title} />
                                 </div>
-                                <div className="text">
-                                    <h5>{el.title}</h5>
-                                    <p>{el.category}</p>
-                                    <span> quantity : {el.quantity}</span>
-                                    <p> $ {el.Price}  each</p>
-                                    {/* <h2> Total Price is ${el.TotalPrice}</h2> */}
-                                    <h2>  Price is $ { el.quantity === 1 ? el.Price : el.TotalPrice}</h2>
-                                   
+                                <div>
+                                    <div className="text">
+                                        <h5>{el.title}</h5>
+                                        {/* <p>{el.category}</p> */}
+                                        <span> quantity : {el.quantity}</span>
+                                        <p> $ {el.Price}  each</p>
+                                        {/* <h2> Total Price is ${el.TotalPrice}</h2> */}
+                                        <h2>  Price is $ { el.quantity === 1 ? el.Price : el.TotalPrice}</h2>
+                                    
+                                    </div>
+                                    <div className="qty-btns">
+                                        <button onClick={()=>substractQuantity(el)}  >-</button>
+                                        <button onClick={()=>addQuantity(el)} >+</button>
+                                        <button onClick={()=>handleRemoveFromCart(el)}>DEL</button>
+                                    </div>
                                 </div>
-                                <div className="qty-btns">
-                                    <button onClick={()=>substractQuantity(el)}  >-</button>
-                                    <button onClick={()=>addQuantity(el)} >+</button>
-                                    <button onClick={()=>handleRemoveFromCart(el)}>DEL</button>
-                                </div>
+                               
                             </div>
-                        </>
-
+                       
                     )
                 })                
             }
+             </div>
             
-            <Billing total = {[totalProducts,amount]} />
+            <Billing total = {[totalProducts,amount]}  />
         </div>
     )
 }

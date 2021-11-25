@@ -28,7 +28,8 @@ const cartHandler =(state= myCart,action)=>{
                     {
                         ...element,
                         quantity:1,
-                        Price: element.price 
+                        Price: element.price
+                         
                     }
                 ]
             }
