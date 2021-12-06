@@ -4,6 +4,7 @@ import { removeFromCart } from "../../Redux/Action/action";
 import { decreaseQuantity } from '../../Redux/Action/action';
 import { increaseQuantity } from '../../Redux/Action/action';
 import Billing from './Billing';
+import Emptycart from '../Common/Emptycart';
 import "../../styles/cartitems.css";
 const Cart = () => {
     const [totalProducts,setTotalProducts] = useState(0);
@@ -49,15 +50,15 @@ const Cart = () => {
     }
     return (
         <div className="cart_holder">
-            <div className="cart_item_conatainer"> 
-            {state.length===0 ? "empty cart" : 
+            <div className="cart_item_container"> 
+            {state.length===0 ? <Emptycart /> : 
             
                 state.map((el)=>{
                     return (
                        
                             <div className="cart_item" >
                                 <div className="cart_image_c">
-                                    <img src={el.image} style ={{width:"100px"}} alt={el.title} />
+                                    <img src={el.image} alt={el.title} />
                                 </div>
                                 <div>
                                     <div className="text">

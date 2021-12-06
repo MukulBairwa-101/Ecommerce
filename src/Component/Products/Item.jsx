@@ -9,11 +9,12 @@ const Item = () => {
     const {id} = useParams();
     const[item,setItem] = useState([]);
     const[loading,setLoading]= useState(false);
+    const[text,setText]= useState(false);
 
     const dispatch = useDispatch();
     const handleAddToCart =(item)=>{
         dispatch(addToCart(item));
-        
+        // setText(true);
     }
 
     useEffect(()=>{
@@ -25,6 +26,7 @@ const Item = () => {
 
         }
         getItem();
+        setText(false);
     },[])
 
     const ItemDisplay =()=>{
@@ -41,7 +43,9 @@ const Item = () => {
                         <p>{item.description}</p>
                         <div className="button_holder">
                             <button onClick ={()=>handleAddToCart(item)}>Add to cart</button>
-                            <Link to ="/cart">My Cart</Link>
+                            <Link to ="/cart" className="underline">
+                                My Cart
+                            </Link>                
                         </div>
                     </div>
                 </div>

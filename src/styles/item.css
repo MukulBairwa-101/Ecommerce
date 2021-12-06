@@ -31,12 +31,41 @@
 
 /* Button holder */
 .button_holder{
-    width: 50%;
+    width: 80%;
     padding: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+
 }
 .button_holder button{
-    font-size: 1.2rem;
+    font-size: 1rem;
+    border: .08rem solid violet;
+    padding: .5rem;
+    width:50%;
+    color:rgb(204, 90, 204);
+    background-color: white;
+    cursor: pointer;
 }
+.button_holder button:hover{
+    background-color: rgb(177, 95, 177);
+    color: #fff;
+    
+}
+
+.button_holder a{
+    text-decoration: none;
+    padding: .5rem;
+    font-size: 1.2rem;
+    width:40%;
+    cursor: pointer;
+    color:rgb(68, 68, 68);
+}
+.button_holder a:hover::after{
+    content: "  ->";
+    transition: linear .3s  ;
+    
+}
+
+
 /* Button holder */
+

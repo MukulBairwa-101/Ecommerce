@@ -6,7 +6,7 @@ const cartHandler =(state= myCart,action)=>{
     switch(action.type){
         case "ADDTOCART":
             const itemExist = state.find((element)=>element.id === item.id);
-            
+                            
             if(itemExist){
                 return state.map((element)=>element.id === item.id  ?
                 {

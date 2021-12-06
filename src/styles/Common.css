@@ -24,3 +24,26 @@
     font-weight: 500;
     letter-spacing: .1rem;
 }
+.emptycart_wrapper{
+
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-right: .07rem solid gray;
+}
+.emptycart_wrapper img{
+    width:50%;
+    margin:1rem auto;
+}
+.emptycart_wrapper div{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+}
+.emptycart_wrapper div a{
+    text-decoration: none;
+    color: cadetblue;
+
+}
