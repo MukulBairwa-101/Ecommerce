@@ -60,20 +60,24 @@ const Cart = () => {
                                 <div className="cart_image_c">
                                     <img src={el.image} alt={el.title} />
                                 </div>
-                                <div>
+                                <div className="cart-text">
                                     <div className="text">
                                         <h5>{el.title}</h5>
                                         {/* <p>{el.category}</p> */}
-                                        <span> quantity : {el.quantity}</span>
+                                        <p> quantity : <span> {el.quantity}</span></p>
                                         <p> $ {el.Price}  each</p>
                                         {/* <h2> Total Price is ${el.TotalPrice}</h2> */}
-                                        <h2>  Price is $ { el.quantity === 1 ? el.Price : el.TotalPrice}</h2>
+                                        
                                     
                                     </div>
                                     <div className="qty-btns">
                                         <button onClick={()=>substractQuantity(el)}  >-</button>
                                         <button onClick={()=>addQuantity(el)} >+</button>
                                         <button onClick={()=>handleRemoveFromCart(el)}>DEL</button>
+                                    </div>
+                                    <div className="price_tag">
+                                    Price 
+                                    <h2>   $ { el.quantity === 1 ? el.Price : el.TotalPrice}</h2>
                                     </div>
                                 </div>
                                
