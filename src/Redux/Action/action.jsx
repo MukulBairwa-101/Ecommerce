@@ -25,3 +25,11 @@ export const increaseQuantity = (item)=>{
     }
 }
 
+export const handleCheckoutButton = (state)=>{
+    return{
+        type:"HANDLECHECKOUTBUTTON",
+        payload:state
+    }
+}
+
+

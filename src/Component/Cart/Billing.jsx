@@ -1,8 +1,14 @@
-import React,{useState} from 'react'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import {Link} from "react-router-dom";
- 
+import {handleCheckoutButton} from "../../Redux/Action/action" 
 const Billing = (props) => {
-    // const [goods, setGoods] = useState(props.totalgoods);
+    const state = useSelector((state)=>state.cartHandler) 
+    const dispatch = useDispatch();
+     const handleCheckout=(state)=>{
+        dispatch(handleCheckoutButton(state));
+
+     }
     return (
         <div className="biil summary">
             <header>Order Summary</header>
@@ -14,7 +20,7 @@ const Billing = (props) => {
                  <h4>Grand Total : </h4>  <h4> $ {props.total[1]}</h4>
             </div>
             
-            <Link to ="/checkout">Checkout</Link>
+            <Link to ="/checkout"  onClick ={handleCheckout}>Checkout</Link>
         </div>
     )
 }

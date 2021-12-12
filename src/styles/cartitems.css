@@ -24,6 +24,8 @@
     font-size: 1.2rem;
     padding: .1rem;
     border-bottom: .08rem solid gray;
+    padding: 2rem  .2rem;
+    
 }
 .summary a{
     text-decoration: none;
@@ -33,7 +35,7 @@
     width: 60%;
     font-size: 1.2rem;
     padding: 1rem;
-    margin: 1rem auto;
+    margin:1.5rem auto;
     text-align: center;
     border-radius: .5rem;
 }
@@ -62,32 +64,35 @@
 }
 .cart_image_c img{
     width:100%;
-    padding: .5rem;
+    padding: .4rem;
     border-radius: 1rem;
     
 }
 .cart-text{
     width:85%;
     /* background-color: greenyellow; */
-    display: grid;
-    grid-template-areas: 
-      'header header header header header  header header  btn btn  '
-      ' header header header header header header header ptag ptag '  ;
-    grid-gap: 5px;  
-    font-size: .8rem;
+    display: flex;
+    font-size: 1rem;
+    margin:.5rem auto;
+ 
 }
 .text { 
-    grid-area: header;
-    /* background-color: rgb(234, 213, 255); */
     text-transform: capitalize;
     color:rgb(44, 44, 44);
+    padding:.1rem .5rem;
+    width:70%;
+    padding: .5rem 0rem;
+}
+.text h5{
+    width:75%;
 }
 .text span{
     color:dodgerblue;
 }
-.qty-btns{ grid-area: btn ;
-    margin: auto;
-    padding: .2rem; 
+.qty-btns{ 
+    margin: 1rem auto;
+    display: flex;
+    justify-content: flex-end;
 }
 .qty-btns button{
     margin: .1rem .4rem;
@@ -103,11 +108,12 @@
     background-color: rgb(32, 80, 224);
 }
 .price_tag{ 
-    grid-area: ptag ;
+
     display: flex;
     flex-direction: column;
     margin: .5rem auto;
-    font-size: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
     color: rgb(49, 49, 49);
     font-weight: 600;
 }

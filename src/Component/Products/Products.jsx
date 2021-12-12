@@ -2,6 +2,8 @@ import React,{useEffect, useState} from 'react'
 import "../../styles/productcard.css"
 import "../../styles/Common.css";
 import {Link} from "react-router-dom";
+import Loader from '../Common/Loader';
+import "../../App.css";
 const Products = () => {
     const[products,setProducts] = useState([]);
     const[filter,setFilter] = useState(products);
@@ -33,7 +35,7 @@ const Products = () => {
     const Loading =()=>{
         return(
             <>
-                    Loading...
+                    <Loader />
             </>
         )
     }

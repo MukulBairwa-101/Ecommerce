@@ -11,8 +11,7 @@ const cartHandler =(state= myCart,action)=>{
                 return state.map((element)=>element.id === item.id  ?
                 {
                     ...element,
-                    quantity: element.quantity + 1,
-                    // TotalPrice: element.price * (element.quantity+1),  
+                    quantity: element.quantity + 1, 
                     TotalPrice: element.Price * (element.quantity+1),         
                 }
                 
@@ -57,13 +56,11 @@ const cartHandler =(state= myCart,action)=>{
         break;
         
         case "INCREASEQUANTITY":
-            // const qtyDEC = state.find((element)=>element.id === item.id);
-            // if(qtyDEC){
+
                 return state.map((element)=>element.id === item.id  ?
                     {
                         ...element,
                         quantity: element.quantity + 1,
-                        // TotalPrice:(element.Price * (element.quantity+1)).toFixed(2),
                         TotalPrice: (element.Price * (element.quantity+1)).toFixed(2), 
                        
                     }
@@ -73,15 +70,13 @@ const cartHandler =(state= myCart,action)=>{
         break;
 
         case "DECREASEQUANTITY":
-            // const qtyDEC = state.find((element)=>element.id === item.id);
-            // if(qtyDEC){
                 return state.map((element)=>element.id === item.id  ?
                     element.quantity >0 ?
                     {
                         ...element,
                         quantity: element.quantity - 1,
                         TotalPrice:(element.price * (element.quantity-1)).toFixed(2)
-                        // TotalPrice:(100 * (element.quantity-1)).toFixed(2)
+
                     }
                     :{
                         ...element,
@@ -90,7 +85,10 @@ const cartHandler =(state= myCart,action)=>{
                     )
             
         break;
-
+         
+        case "HANDLECHECKOUTBUTTON" :
+                return state = [];
+        break;        
         default:
             return state;
         break;

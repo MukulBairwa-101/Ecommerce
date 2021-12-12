@@ -66,19 +66,19 @@ const Cart = () => {
                                         {/* <p>{el.category}</p> */}
                                         <p> quantity : <span> {el.quantity}</span></p>
                                         <p> $ {el.Price}  each</p>
-                                        {/* <h2> Total Price is ${el.TotalPrice}</h2> */}
-                                        
-                                    
                                     </div>
+                                    <div>
                                     <div className="qty-btns">
                                         <button onClick={()=>substractQuantity(el)}  >-</button>
                                         <button onClick={()=>addQuantity(el)} >+</button>
                                         <button onClick={()=>handleRemoveFromCart(el)}>DEL</button>
                                     </div>
                                     <div className="price_tag">
-                                    Price 
+                                    
                                     <h2>   $ { el.quantity === 1 ? el.Price : el.TotalPrice}</h2>
                                     </div>
+                                    </div>
+                                    
                                 </div>
                                
                             </div>
